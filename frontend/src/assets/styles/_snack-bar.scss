@@ -1,0 +1,26 @@
+div.mat-mdc-snack-bar-label {
+  text-align: center;
+}
+
+//.mat-mdc-snack-bar-container {
+//  --mdc-snackbar-container-color: #16365d;
+//}
+
+.cdk-overlay-pane {
+  //margin-bottom: 350px!important;
+}
+
+.mat-mdc-snack-bar-container {
+  &.success {
+    --mdc-snackbar-container-color: #4b9951;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+    --mat-snack-bar-button-color: #fff;
+  }
+  &.invalid {
+    --mdc-snackbar-container-color: #da4c5c;
+    --mat-mdc-snack-bar-button-color: #fff;
+    --mdc-snackbar-supporting-text-color: #fff;
+    --mat-snack-bar-button-color: #fff;
+  }
+}

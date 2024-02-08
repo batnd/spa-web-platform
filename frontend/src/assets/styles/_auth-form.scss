@@ -1,0 +1,167 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/mixins";
+
+.auth-form {
+  width: 429px;
+
+  .auth-title {
+    @include lora400;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+
+  .auth-content {
+    width: 422px;
+
+    .auth-inputs {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 40px;
+      // -----------------------
+      position: relative;
+      // -----------------------
+
+      .auth-input {
+        width: 100%;
+        margin-bottom: 5px;
+        position: relative;
+
+        &.auth-input-last {
+          margin-bottom: 10px;
+        }
+
+        .auth-input-txt {
+          width: 100%;
+          height: 53px;
+          padding: 17px 20px;
+
+          &.auth-input-txt-password {
+
+            padding-right: 45px;
+          }
+        }
+
+        .auth-input-show-password {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          cursor: pointer;
+          height: 53px;
+          width: 45px;
+          box-sizing: border-box;
+          border-radius: 0 3px 3px 0;
+
+          &.active {
+            background-color: rgba(112, 159, 220, 0.1);
+          }
+
+          svg {
+            fill: $text-color-blue;
+          }
+        }
+      }
+
+      .auth-input-check {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        label, span, a {
+          font-size: 14px;
+        }
+
+        label a {
+          color: $text-color-blue;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    button {
+      width: 100%;
+      height: 51px;
+      font-weight: 400;
+      font-size: 16px;
+      padding: 15px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .auth-extra {
+      @include montserrat400-black-additional;
+
+      a {
+        color: $text-color-blue;
+      }
+    }
+  }
+}
+
+.invalid-input-message {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+
+  &.invalid-input-message-last {
+    padding-left: 22px;
+  }
+
+  p {
+    color: $text-color-invalid-input-message;
+    font-size: 14px;
+
+    span {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+// --------------------------------
+// Улучшение
+.invalid-input-message2 {
+  width: 335px;
+  background-color: white;
+  box-sizing: border-box;
+  position: absolute;
+  right: -345px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 7px;
+  border-radius: 3px;
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.25);
+
+  &.invalid-input-message-last {
+    padding-left: 22px;
+  }
+
+  p {
+    //color: $text-color-invalid-input-message;
+    color: $text-color-black-additional;
+    font-size: 14px;
+
+    span {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+// --------------------------------
+
+.page-image {
+  width: 607px;
+  height: 390px;
+  display: flex;
+
+  img {
+    height: 100%;
+  }
+}

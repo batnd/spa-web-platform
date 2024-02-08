@@ -1,0 +1,88 @@
+<div class="popup">
+  <div class="serviceRequestForm" *ngIf="popupType.serviceRequest && !requestSuccess">
+    <p class="content-title">Заявка на услугу</p>
+    <div class="content-form" [formGroup]="serviceRequestForm">
+      <div class="content-form-input">
+        <mat-select formControlName="serviceType" panelClass="aMat-list">
+          <mat-option value="development">Создание сайтов</mat-option>
+          <mat-option value="smm">Продвижение</mat-option>
+          <mat-option value="advertisement">Реклама</mat-option>
+          <mat-option value="copyright">Копирайтинг</mat-option>
+        </mat-select>
+      </div>
+      <div class="content-form-input">
+        <input formControlName="name" [class.invalid-input]="serviceRequestForm.get('name')?.invalid && (serviceRequestForm.get('name')?.dirty || serviceRequestForm.get('name')?.touched)"
+          class="input" type="text" id="name" placeholder="Ваше имя">
+        <p *ngIf="serviceRequestForm.get('name')?.invalid && (serviceRequestForm.get('name')?.dirty || serviceRequestForm.get('name')?.touched)" class="invalid-input-message">
+          Необходимо заполнить поле!
+        </p>
+      </div>
+      <div class="content-form-input">
+        <input formControlName="phone" mask="+0 (000) 000-0000"
+          [class.invalid-input]="serviceRequestForm.get('phone')?.invalid && (serviceRequestForm.get('phone')?.dirty || serviceRequestForm.get('phone')?.touched)"
+          class="input" type="text" id="phone" placeholder="Ваш номер телефона">
+        <p *ngIf="serviceRequestForm.get('phone')?.invalid && (serviceRequestForm.get('phone')?.dirty || serviceRequestForm.get('phone')?.touched)"
+          class="invalid-input-message">
+          Необходимо заполнить поле!
+        </p>
+      </div>
+    </div>
+    <button [disabled]="serviceRequestForm.invalid || requestMade" (click)="sendRequest('serviceRequest')" class="content-action button button-blue">
+      <span *ngIf="!requestMade">Оставить заявку</span>
+      <span *ngIf="requestMade"><mat-spinner diameter="25"></mat-spinner></span>
+    </button>
+    <div *ngIf="errorRequest && !requestSuccess" class="requestForm-invalid-response">
+      <p class="invalid-message">Произошла ошибка при отправке формы :(</p>
+      <p class="invalid-message">Пожалуйста, попробуйте еще раз!</p>
+    </div>
+  </div>
+
+  <div class="consultationRequestForm" *ngIf="popupType.consultationRequest && !requestSuccess">
+    <p class="content-title">Закажите бесплатную консультацию!</p>
+    <div class="content-form" [formGroup]="consultationRequestForm">
+      <div class="content-form-input">
+        <input formControlName="name"
+               [class.invalid-input]="consultationRequestForm.get('name')?.invalid && (consultationRequestForm.get('name')?.dirty || consultationRequestForm.get('name')?.touched)"
+               class="input" type="text" id="nameConsultation" placeholder="Ваше имя">
+        <p
+          *ngIf="consultationRequestForm.get('name')?.invalid && (consultationRequestForm.get('name')?.dirty || consultationRequestForm.get('name')?.touched)"
+          class="invalid-input-message">
+          Необходимо заполнить поле!
+        </p>
+      </div>
+      <div class="content-form-input">
+        <input formControlName="phone" mask="+0 (000) 000-0000"
+               [class.invalid-input]="consultationRequestForm.get('phone')?.invalid && (consultationRequestForm.get('phone')?.dirty || consultationRequestForm.get('phone')?.touched)"
+               class="input" type="text" id="phoneConsultation" placeholder="Ваш номер телефона">
+        <p
+          *ngIf="consultationRequestForm.get('phone')?.invalid && (consultationRequestForm.get('phone')?.dirty || consultationRequestForm.get('phone')?.touched)"
+          class="invalid-input-message">
+          Необходимо заполнить поле!
+        </p>
+      </div>
+    </div>
+    <button [disabled]="consultationRequestForm.invalid || requestMade" (click)="sendRequest('consultationRequest')"
+            class="content-action button button-blue">
+      <span *ngIf="!requestMade">Оставить заявку</span>
+      <span *ngIf="requestMade"><mat-spinner diameter="25"></mat-spinner></span>
+    </button>
+    <div *ngIf="errorRequest && !requestSuccess" class="requestForm-invalid-response">
+      <p class="invalid-message">Произошла ошибка при отправке формы :(</p>
+      <p class="invalid-message">Пожалуйста, попробуйте еще раз!</p>
+    </div>
+  </div>
+
+  <div class="successRequest"
+       *ngIf="(popupType.serviceRequest && requestSuccess) || (popupType.consultationRequest && requestSuccess)">
+    <p class="successRequest-title">Спасибо за вашу заявку!</p>
+    <p class="successRequest-text">Мы свяжемся с вами при первой же возможности.</p>
+    <button mat-dialog-close class="successRequest-action button button-blue">Окей</button>
+  </div>
+
+  <div class="popup-close" mat-dialog-close>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="1.93562" y1="2.64999" x2="13.9564" y2="14.6708" stroke="#BEBEBE" stroke-linecap="round"/>
+      <line x1="13.9236" y1="2.62978" x2="1.90277" y2="14.6506" stroke="#BEBEBE" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>

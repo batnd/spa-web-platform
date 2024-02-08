@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'fonts';
+@import 'global';
+@import 'snack-bar';
+@import 'owl-carousel';
+@import 'aMaterial-select';
+@import 'articles-fetch-text';
+
+//html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.backdrop-active {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  //background-color: rgba(0, 0, 0, 0.1);
+  z-index: 4;
+}
+
+html {
+  //scroll-behavior: smooth;
+}

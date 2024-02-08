@@ -1,0 +1,183 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.popup {
+  box-sizing: border-box;
+  width: 727px;
+  height: 489px;
+  //border-radius: 10px;
+
+  //.content {
+  //box-sizing: border-box;
+  //width: 100%;
+  //height: 100%;
+  //padding: 95px 152px 85px;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
+
+  .serviceRequestForm {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 95px 152px 85px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .consultationRequestForm {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 95px 155px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .successRequest {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 163px 142px;
+
+    .successRequest-title {
+      @include lora400;
+      font-size: 38px;
+      line-height: 49px;
+      color: $text-color-blue;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .successRequest-text {
+      width: 100%;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 14px;
+      color: $text-color-black-additional;
+      flex-grow: 1;
+      //margin-bottom: 40px;
+    }
+
+    .successRequest-action {
+      height: 36px;
+      width: 73px;
+    }
+  }
+
+  .popup-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
+}
+
+.content-title {
+  @include lora400;
+  font-size: 38px;
+  line-height: 49px;
+  color: $text-color-blue;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.content-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-bottom: 20px;
+
+  .content-form-input {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    input {
+      width: 100%;
+      height: 53px;
+      padding: $modal-input-padding;
+    }
+
+    mat-select {
+      height: 53px;
+      width: 100%;
+    }
+
+    select {
+      color: $text-color-blue;
+      cursor: pointer;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: center;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
+      option {
+        color: black;
+        font-size: 14px;
+      }
+
+      &::-ms-expand {
+        display: none;
+      }
+    }
+
+    .invalid-input-message {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: -100px;
+      padding-left: 10px;
+      box-sizing: border-box;
+      width: 100px;
+      font-size: 12px;
+      line-height: 14px;
+      color: $text-color-invalid-input-message;
+    }
+  }
+}
+
+.content-action {
+  width: 100%;
+  height: 51px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.requestForm-invalid-response {
+  bottom: 40px;
+  width: 100%;
+  margin-top: 15px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+
+  .invalid-message {
+    font-size: 13px;
+    line-height: 14px;
+    color: $text-color-invalid-input-message;
+    text-align: center;
+  }
+}
+
+//}

@@ -1,0 +1,30 @@
+@import "../../../../assets/styles/auth-form";
+
+.signup {
+  padding: 106px 0 92px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .auth-form {
+      width: 422px;
+
+      .auth-content {
+
+        .auth-inputs {
+
+          .auth-input-check {
+            align-items: flex-start;
+
+            input {
+              margin-top: 3px;
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

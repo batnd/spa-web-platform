@@ -1,0 +1,193 @@
+@import "mixins";
+
+html, body, * {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.logo {
+  width: 85px;
+  height: 47px;
+
+  &:hover a svg {
+    animation-name: logo-anim;
+    //animation-play-state: running;
+  }
+
+  a {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+
+    svg {
+      animation-name: none;
+      animation-duration: .5s;
+      animation-timing-function: ease-in-out;
+      //animation-play-state: paused;
+    }
+
+    p {
+      font-family: "Jost", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: $text-color-blue;
+
+      span {
+        font-family: "Jost", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@keyframes logo-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(25deg);
+  }
+
+  75% {
+    transform: rotate(-35deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: unset;
+  font-family: "Montserrat", sans-serif;
+}
+
+.button-blue {
+  background-color: $text-color-blue;
+  color: #FFFFFF;
+  transition: background-color .25s ease-in-out;
+
+  &:not(:disabled):hover {
+    background-color: #6492ce;
+
+    &:active {
+      background-color: #4e77af;
+    }
+  }
+
+  &:disabled {
+    background-color: #b1d0ff;
+    cursor: not-allowed;
+  }
+}
+
+.link-click {
+  transition: opacity .2s ease-in-out;
+
+  &:hover {
+    opacity: .60;
+  }
+}
+
+.navigation-link {
+  transition: opacity .2s ease-in-out;
+
+  &:not(.active):hover {
+    opacity: .65;
+  }
+}
+
+.input {
+  @include montserrat400-black;
+  font-size: 14px;
+  border: 2px solid $text-color-blue;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 3px;
+
+  &::placeholder {
+    color: $text-color-placeholder-gray;
+  }
+
+  &:focus {
+    border-color: #4670a8;
+  }
+
+  &.invalid-input {
+    border-color: $text-color-invalid-input-message;
+  }
+}
+
+// ----------------------------------------------
+// Стили для размещения футера внизу для любого количества контента
+html {
+  height: 100%;
+
+  body {
+    height: 100%;
+
+    app-root {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+
+      app-layout {
+        display: flex;
+        flex-direction: column;
+        //flex: 1 0 auto;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: auto;
+
+        app-header {
+
+        }
+
+        app-main, app-login, app-signup, app-agreement, app-articles, app-article {
+          //flex: 1 0 auto;
+          flex-grow: 1;
+          flex-shrink: 0;
+          flex-basis: auto;
+        }
+
+        app-footer {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+.mat-mdc-progress-spinner {
+  --mdc-circular-progress-active-indicator-color: #FFF;
+}
+
+//app-agreement {
+//  height: 100%;
+//  display: flex;
+//  flex-direction: column;
+//
+//  .agreement {
+//    flex-grow: 1;
+//    flex-shrink: 0;
+//    flex-basis: auto;
+//  }
+//}
+// ----------------------------------------------
+

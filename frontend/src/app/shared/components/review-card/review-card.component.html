@@ -1,0 +1,7 @@
+<div class="reviewCard" *ngIf="reviewCardData">
+  <div class="reviewCard-reviewerInfo">
+    <img class="reviewCard-reviewerInfo-photo" src="{{reviewCardData.photo}}" alt="Reviewer photo">
+    <p class="reviewCard-reviewerInfo-name">{{reviewCardData.name}}</p>
+  </div>
+  <p class="reviewCard-review">{{reviewCardData.text}}</p>
+</div>

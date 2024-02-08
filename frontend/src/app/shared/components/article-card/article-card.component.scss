@@ -1,0 +1,84 @@
+@import "../../../../assets/styles/mixins";
+@import "../../../../assets/styles/variables";
+
+.articleCard {
+  width: 292px;
+  //height: 571px;
+  //min-height: 571px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .articleCard-image {
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+
+    img {
+      border-radius: 5px;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    div {
+      border-radius: 5px;
+      width: 292px;
+      height: 292px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    span {
+      cursor: pointer;
+      box-sizing: border-box;
+      padding: 10px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 10px;
+      right: 9px;
+      background-color: #FFFFFF;
+      border-radius: 5px;
+
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      color: $text-color-blue;
+    }
+  }
+
+  .articleCard-content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    .articleCard-content-title {
+      @include montserrat500-blue;
+      font-size: 20px;
+      line-height: 26px;
+      margin-bottom: 20px;
+    }
+
+    .articleCard-content-description {
+      @include montserrat400-black;
+      flex-grow: 1;
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    .articleCard-content-action {
+      margin-top: 20px;
+      display: flex;
+
+      a {
+        cursor: pointer;
+        @include montserrat400-blue;
+        font-size: 16px;
+        text-decoration: underline;
+      }
+    }
+  }
+}

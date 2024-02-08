@@ -1,0 +1,62 @@
+@import "../../../../assets/styles/variables";
+
+.service-card {
+  width: 290px;
+  height: 498px;
+  display: flex;
+  flex-direction: column;
+  //justify-content: space-between;
+
+  img {
+    width: 100%;
+    aspect-ratio: 1;
+    margin-bottom: 15px;
+    flex-grow: 0;
+  }
+
+  .service-card-text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    //margin-bottom: 33px;
+    flex-grow: 1;
+
+    .service-card-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+      color: $text-color-blue;
+    }
+
+    .service-card-description {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      color: $text-color-black;
+      line-height: 18px;
+    }
+  }
+
+  .service-card-actions {
+    flex-grow: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 51px;
+
+    .service-card-price {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      color: $text-color-blue;
+    }
+
+    button {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      width: 163px;
+      height: 51px;
+    }
+  }
+}

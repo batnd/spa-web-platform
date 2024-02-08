@@ -1,0 +1,40 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.reviewCard {
+  width: 396px;
+  height: 267px;
+  border: 2px solid $text-color-blue;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  .reviewCard-reviewerInfo {
+    display: flex;
+    align-items: center;
+    column-gap: 26px;
+
+    .reviewCard-reviewerInfo-photo {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .reviewCard-reviewerInfo-name {
+      @include montserrat600-blue;
+      font-size: 18px;
+    }
+  }
+
+  .reviewCard-review {
+    display: flex;
+    //flex-grow: 1;
+    @include montserrat400-black;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}

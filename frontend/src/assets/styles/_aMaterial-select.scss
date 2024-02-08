@@ -1,0 +1,51 @@
+@import "variables";
+
+.mat-mdc-select {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex !important;
+  height: 100%;
+  border-radius: 3px;
+
+  //background-color: rgba(78, 119, 175, 0.15);
+  //border: 2px solid $text-color-blue;
+  //outline: none;
+
+  outline: $text-color-blue solid 2px !important;
+  outline-offset: -2px !important;
+
+  .mat-mdc-select-trigger {
+    padding: $modal-input-padding;
+
+    span {
+      color: $text-color-blue;
+      font-size: 14px;
+    }
+
+    .mat-mdc-select-arrow-wrapper {
+      display: none;
+    }
+  }
+}
+
+.mat-mdc-select-panel.aMat-list {
+
+  .mat-mdc-option {
+
+    .mdc-list-item__primary-text {
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+    }
+
+    .mat-mdc-option-pseudo-checkbox {
+      &::after {
+        color: $text-color-blue;
+      }
+    }
+  }
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface{
+  border-radius: 10px!important;
+}
+

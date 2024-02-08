@@ -1,0 +1,15 @@
+@import "../../../../assets/styles/auth-form";
+
+.login {
+  padding: 106px 0 92px;
+  //height: 414px;
+  //height: 421px;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    //align-items: center;
+    align-items: flex-start;
+    height: 100%;
+  }
+}

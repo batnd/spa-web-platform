@@ -1,0 +1,93 @@
+@import "../../../../assets/styles/variables";
+
+.header {
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+      margin-right: 100px;
+    }
+
+    .navigation {
+      width: 429px;
+      //margin-right: 257px;
+      margin-right: 230px;
+
+      ul {
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 30px;
+
+        li {
+          a {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+            font-size: 16px;
+            color: $text-color-black;
+
+            &.active {
+              color: $text-color-blue;
+            }
+          }
+        }
+      }
+    }
+
+    .header-phone {
+      display: flex;
+      justify-content: flex-start;
+      width: 144px;
+      flex-grow: 1;
+
+      a {
+        //width: 100%;
+        display: flex;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: $text-color-blue;
+      }
+    }
+
+    .header-user {
+
+      .header-user-link {
+        cursor: pointer;
+        height: 35px;
+        display: flex;
+        column-gap: 7px;
+        align-items: center;
+        position: relative;
+
+        &:hover span {
+          opacity: 0.7;
+        }
+
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+
+        span {
+          transition: opacity .2s ease-in-out;
+          font-weight: 500;
+          color: $text-color-black;
+        }
+      }
+    }
+  }
+}
+
+.mat-mdc-menu-item {
+  min-height: 25px;
+  width: 100%;
+
+  &.menu-logout {
+  }
+}

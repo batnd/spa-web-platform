@@ -1,0 +1,417 @@
+@import "../../../../assets/styles/variables";
+@import "../../../../assets/styles/mixins";
+
+.article {
+  padding: 80px 0 120px;
+
+  .container {
+
+    .article-breadcrumb {
+      margin-bottom: 60px;
+
+      ul {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        column-gap: 8px;
+
+        li {
+
+          a {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $text-color-background-blue;
+
+            &.article-breadcrumb-prev {
+              color: $text-color-background-blue;
+            }
+
+            &.article-breadcrumb-current {
+              color: $text-color-blue;
+            }
+          }
+
+          &:first-child {
+            display: flex;
+            align-items: center;
+            column-gap: 8px;
+
+            &:after {
+              font-family: "Montserrat", sans-serif;
+              font-weight: 400;
+              font-size: 14px;
+              content: '/';
+              color: $text-color-background-blue;
+            }
+
+          }
+        }
+      }
+    }
+
+    .article-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+
+      .article-header-info {
+        width: 607px;
+        display: flex;
+        flex-direction: column;
+
+        .article-header-title {
+          @include lora400;
+          font-size: 38px;
+          line-height: 49px;
+          margin-bottom: 40px;
+        }
+
+        .article-header-description {
+          @include lora400;
+          font-size: 20px;
+          line-height: 26px;
+        }
+      }
+    }
+
+    .article-main {
+      display: flex;
+      column-gap: 130px;
+      //margin-bottom: 60px;
+
+      .article-main-more {
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+
+        .article-main-more-title {
+          @include lora400;
+          font-size: 26px;
+          margin-bottom: 20px;
+        }
+
+        .article-main-more-articleCards {
+          display: flex;
+          flex-direction: column;
+          row-gap: 60px;
+        }
+      }
+
+      .article-main-block {
+
+        .article-main-text {
+          margin-bottom: 60px;
+        }
+
+        .article-share {
+          display: flex;
+          align-items: center;
+          column-gap: 20px;
+          margin-bottom: 60px;
+
+          .article-share-text {
+            @include montserrat500-blue;
+            font-size: 14px;
+          }
+
+          .article-share-icons {
+            display: flex;
+            column-gap: 13px;
+
+            a {
+              display: flex;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        // -------------------------------------------------------------------------------------------------- //
+        // Придумать состояния *авторизован/не авторизован юзер*, *есть комментарии/нет комментариев*         //
+        // 1 - Юзер не авторизован + нет комментариев                                                         //
+        // 2 - Юзер не авторизован + есть комментарии                                                         //
+        // 3 - Юзер авторизован + нет комментариев                                                            //
+        // 4 - Юзер авторизован + есть комментарии                                                            //
+        // -------------------------------------------------------------------------------------------------- //
+
+        // 1 - uUnauth-noCom - !isUserLoggedIn && !loadedComments
+        // 2 - uUnauth-com   - !isUserLoggedIn && loadedComments
+        // 3 - uAuth-noCom   - isUserLoggedIn && !loadedComments
+        // 4 - uAuth-com     - isUserLoggedIn && loadedComments
+
+        .article-comments {
+          display: flex;
+          flex-direction: column;
+
+          .article-comments-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 48px;
+
+            p {
+              @include lora400;
+              font-size: 38px;
+            }
+
+            .article-comments-reload {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              width: 20px;
+              height: 100%;
+
+              svg {
+                fill: $text-color-blue;
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+
+          .article-comments-createComment {
+
+            .article-comments-createComment-uUnauth {
+              p {
+                @include montserrat400-black;
+                font-size: 14px;
+                line-height: 18px;
+
+                a {
+                  font-family: "Montserrat", sans-serif;
+                  font-size: 14px;
+                  line-height: 18px;
+                  color: $text-color-blue;
+                }
+              }
+            }
+
+            .article-comments-createComment-uAuth-noCom {
+              p {
+                @include montserrat400-black;
+                font-size: 14px;
+                line-height: 18px;
+              }
+            }
+
+            .comment-loggedIn {
+              display: flex;
+              flex-direction: column;
+              row-gap: 20px;
+
+              .comment-loggedIn-input {
+                box-sizing: border-box;
+                width: 818px;
+                height: 248px;
+                padding: 20px;
+                resize: none;
+                border-radius: 3px;
+                outline: none;
+                border: 2px solid $text-color-blue;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 400;
+                font-size: 14px;
+                color: $text-color-black;
+
+                &::placeholder {
+                  color: #A8ABA7;
+                }
+
+                &:focus {
+                  border-color: #4670a8;
+                }
+              }
+
+              .comment-loggedIn-button {
+                width: 422px;
+                height: 51px;
+                padding: 15px;
+                box-sizing: border-box;
+                font-family: "Montserrat", sans-serif;
+                font-weight: 400;
+                font-size: 16px;
+              }
+            }
+
+            .article-comments-createComment-empty {
+
+              p {
+                @include montserrat400-black;
+                font-size: 14px;
+                line-height: 18px;
+              }
+            }
+          }
+
+          .article-comments-items {
+            display: flex;
+            flex-direction: column;
+            row-gap: 40px;
+
+            .article-comment {
+              display: flex;
+              flex-direction: column;
+
+              .article-comment-header {
+                display: flex;
+                align-items: flex-start;
+                column-gap: 26px;
+                margin-bottom: 15px;
+
+                .article-comment-header-icon {
+                  width: 60px;
+                  height: 60px;
+                }
+
+                .article-comment-header-userInfo {
+                  display: flex;
+                  flex-direction: column;
+                  row-gap: 10px;
+
+                  .article-comment-header-userInfo-name {
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 600;
+                    font-size: 18px;
+                    color: $text-color-blue;
+                  }
+
+                  .article-comment-header-userInfo-date {
+                    font-family: "Montserrat", sans-serif;
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: $text-color-grey;
+                  }
+                }
+              }
+
+              .article-comment-body {
+                margin-bottom: 40px;
+
+                .article-comment-header-text {
+                  @include montserrat400-black;
+                  font-size: 14px;
+                  line-height: 19px;
+                }
+              }
+
+              .article-comment-actions {
+                display: flex;
+                column-gap: 15px;
+
+                div {
+                  cursor: pointer;
+                  display: flex;
+                  align-items: center;
+                  column-gap: 3px;
+                  transition: opacity .2s ease-in-out;
+
+                  p {
+                    @include montserrat600-black;
+                    font-size: 14px;
+                  }
+
+                  &.article-comment-actions-like:not(.active):hover,
+                  &.article-comment-actions-dislike:not(.active):hover,
+                  &.article-comment-actions-report:not(.active):hover {
+                    opacity: .60;
+                  }
+                }
+              }
+            }
+
+            .article-comments-more {
+              display: flex;
+              margin-top: 20px;
+
+              p {
+                cursor: pointer;
+                @include montserrat500-blue;
+                font-size: 20px;
+                display: flex;
+                align-items: center;
+                column-gap: 10px;
+
+                span {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+              }
+            }
+          }
+
+          &.uUnauth-noCom {
+            .article-comments-title {
+              margin-bottom: 20px;
+            }
+
+            .article-comments-createComment-uUnauth {
+              margin-bottom: 40px;
+            }
+          }
+
+          &.uUnauth-com {
+            .article-comments-title {
+              margin-bottom: 20px;
+            }
+
+            .article-comments-createComment {
+              margin-bottom: 60px;
+            }
+          }
+
+          &.uAuth-noCom {
+            .article-comments-title {
+              margin-bottom: 20px;
+            }
+
+            .article-comments-createComment-uAuth-noCom {
+              margin-bottom: 40px;
+            }
+
+            .comment-loggedIn {
+              margin-bottom: 40px;
+            }
+          }
+
+          &.uAuth-com {
+            .article-comments-title {
+              margin-bottom: 40px;
+            }
+
+            .article-comments-createComment {
+              margin-bottom: 60px;
+            }
+          }
+        }
+        // -------------------------------------------------------------------------------------------------- //
+      }
+    }
+  }
+}
+
+.article-comments-loader {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 44px;
+    height: 44px;
+    animation-name: loader-animation;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes loader-animation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

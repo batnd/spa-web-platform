@@ -1,0 +1,11 @@
+<div class="service-card">
+  <img src="{{serviceCardData.image}}" alt="{{serviceCardData.imageAlt}}">
+  <div class="service-card-text">
+    <p class="service-card-title">{{serviceCardData.title}}</p>
+    <p class="service-card-description">{{serviceCardData.description}}</p>
+  </div>
+  <div class="service-card-actions">
+    <p class="service-card-price" >От {{serviceCardData.price | digitPlace}}₽</p>
+    <button (click)="showModal()" class="button button-blue">Подробнее</button>
+  </div>
+</div>

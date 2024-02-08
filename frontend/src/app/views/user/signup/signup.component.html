@@ -1,0 +1,74 @@
+<div class="signup">
+  <div class="container">
+    <div class="auth-form">
+      <h1 class="auth-title">Регистрация на сайте</h1>
+      <div class="auth-content">
+        <div class="auth-inputs" [formGroup]="signupForm">
+          <div class="auth-input">
+            <input formControlName="name"
+                   [class.invalid-input]="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)"
+                   class="auth-input-txt input" type="text" placeholder="Ваше имя">
+            <div class="invalid-input-message"
+                 *ngIf="signupForm.get('name')?.invalid && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)">
+              <p>Пожалуйста, укажите Ваше имя корректно!</p>
+              <p>Допустимые форматы (порядок не важен):</p>
+              <p>- Иван</p>
+              <p>- Иван Иванов</p>
+              <p>- Иван Иванов Иванович</p>
+            </div>
+          </div>
+          <div class="auth-input">
+            <input formControlName="email"
+                   [class.invalid-input]="(signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched))"
+                   class="auth-input-txt input" type="text" placeholder="Электронная почта">
+            <div class="invalid-input-message"
+                 *ngIf="(signupForm.get('email')?.invalid && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched))">
+              <p>Неверная электронная почта!</p>
+              <p>Пожалуйста, используйте реальную электронную почту.</p>
+            </div>
+          </div>
+          <div class="auth-input auth-input-last">
+            <input formControlName="password" [type]="isPasswordShown ? 'text' : 'password'"
+                   [class.invalid-input]="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)"
+                   class="auth-input-txt input" placeholder="Пароль">
+            <span role="button" tabindex="0" *ngIf="signupForm.value.password" class="auth-input-show-password" [class.active]="isPasswordShown"
+                  (click)="passwordShowingToggle()">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                d="M288 80c-65.2 0-118.8 29.6-159.9 67.7C89.6 183.5 63 226 49.4 256c13.6 30 40.2 72.5 78.6 108.3C169.2 402.4 222.8 432 288 432s118.8-29.6 159.9-67.7C486.4 328.5 513 286 526.6 256c-13.6-30-40.2-72.5-78.6-108.3C406.8 109.6 353.2 80 288 80zM95.4 112.6C142.5 68.8 207.2 32 288 32s145.5 36.8 192.6 80.6c46.8 43.5 78.1 95.4 93 131.1c3.3 7.9 3.3 16.7 0 24.6c-14.9 35.7-46.2 87.7-93 131.1C433.5 443.2 368.8 480 288 480s-145.5-36.8-192.6-80.6C48.6 356 17.3 304 2.5 268.3c-3.3-7.9-3.3-16.7 0-24.6C17.3 208 48.6 156 95.4 112.6zM288 336c44.2 0 80-35.8 80-80s-35.8-80-80-80c-.7 0-1.3 0-2 0c1.3 5.1 2 10.5 2 16c0 35.3-28.7 64-64 64c-5.5 0-10.9-.7-16-2c0 .7 0 1.3 0 2c0 44.2 35.8 80 80 80zm0-208a128 128 0 1 1 0 256 128 128 0 1 1 0-256z"/></svg>
+            </span>
+            <div class="invalid-input-message"
+                 *ngIf="signupForm.get('password')?.invalid && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)">
+              <p>Используйте не менее 8 буквенных латинских и цифровых символов, <span>обязательно использовать:</span>
+              </p>
+              <p>- минимум 1 буква в верхнем регистре</p>
+              <p>- минимум 1 цифра</p>
+            </div>
+          </div>
+          <div class="auth-input-agree">
+            <div class="auth-input-check">
+              <input formControlName="agree" id="agree" type="checkbox">
+              <label for="agree">Я принимаю
+                <a class="link-click" [routerLink]="['/policy']" fragment="agreement"
+                                               target="_blank">условия пользовательского соглашения</a> и даю <a
+                class="link-click" [routerLink]="['/policy']" fragment="personal" target="_blank">согласие на обработку
+                персональных данных.</a>
+              </label>
+            </div>
+            <div class="invalid-input-message invalid-input-message-last"
+                 *ngIf="signupForm.get('agree')?.invalid && (signupForm.get('agree')?.dirty || signupForm.get('agree')?.touched)">
+              <p>Пожалуйста, подтвердите свое согласие на обработку персональных данных!</p>
+            </div>
+          </div>
+        </div>
+        <button [disabled]="signupForm.invalid" (click)="signup()" type="button" class="button button-blue">
+          <span *ngIf="!signupSuccessful">Войти</span>
+          <span *ngIf="signupSuccessful"><mat-spinner diameter="25"></mat-spinner></span>
+        </button>
+        <p class="auth-extra">Уже есть аккаунт? <a class="link-click" routerLink="/login">Войдите</a></p>
+      </div>
+    </div>
+    <div class="page-image">
+      <img src="assets/images/auth/signup.png" alt="Hands writing">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+@import "../../../../assets/styles/variables";
+
+.footer {
+  width: 100%;
+  padding: 40px 0 54px;
+  background-color: $text-color-background-blue;
+
+  .container {
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+
+      .footer-content-top {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        column-gap: 40px;
+        margin-bottom: 42px;
+
+        .navigation {
+          width: 383px;
+
+          ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+
+            li {
+              a {
+                font-family: "Montserrat", sans-serif;
+                font-size: 16px;
+                font-weight: 400;
+                color: $text-color-black;
+              }
+            }
+          }
+        }
+      }
+
+      .footer-content-mid {
+        height: 98px;
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 60px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        color: $text-color-black;
+        margin-bottom: 5px;
+
+        .footer-content-title {
+          color: $text-color-blue;
+          font-weight: 500;
+          margin-bottom: 12px;
+        }
+
+        .footer-address {
+          width: 253px;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .footer-phone {
+          display: flex;
+          flex-direction: column;
+
+          a {
+            color: $text-color-black;
+            margin-bottom: 10px;
+          }
+
+          button {
+            width: 153px;
+            font-size: 12px;
+            font-weight: 500;
+            padding: 10px;
+          }
+        }
+
+        .footer-email {
+          display: flex;
+          flex-direction: column;
+
+          p {
+            margin-bottom: 10px;
+          }
+
+          a {
+            color: $text-color-black;
+            font-size: 14px;
+          }
+        }
+
+        .footer-socials {
+          display: flex;
+          flex-direction: column;
+
+          p {
+            margin-bottom: 15px;
+          }
+
+          .footer-socials-icons {
+            width: 96px;
+            display: flex;
+            justify-content: space-between;
+
+            a {
+              display: flex;
+              transition: opacity .2s ease-in-out;
+
+              &:hover {
+                opacity: .65;
+              }
+            }
+          }
+        }
+      }
+
+      .footer-content-bot {
+        p {
+          font-family: "Montserrat", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          color: $text-color-blue;
+        }
+      }
+    }
+  }
+}

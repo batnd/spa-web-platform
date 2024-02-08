@@ -1,0 +1,41 @@
+@mixin lora400 {
+  font-family: "Lora", sans-serif;
+  font-weight: 400;
+  color: $text-color-blue;
+}
+
+@mixin montserrat600-black {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: $text-color-black;
+}
+
+@mixin montserrat600-blue {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: $text-color-blue;
+}
+
+@mixin montserrat500-blue {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: $text-color-blue;
+}
+
+@mixin montserrat400-blue {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color-blue;
+}
+
+@mixin montserrat400-black {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color-black;
+}
+
+@mixin montserrat400-black-additional {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  color: $text-color-black-additional;
+}
